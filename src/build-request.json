@@ -1,0 +1,60 @@
+{
+  "kind": "build_request",
+  "title": "Display user profile name as forum message author",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-62",
+      "text": "Update the forum message display in the Section Detail page (frontend/src/pages/SectionDetailPage.tsx) so that each message shows the user's saved profile name as the author name instead of displaying the principal or an anonymous/unauthenticated fallback.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-request"
+        ],
+        "quotes": [
+          "Hey chst can you make the forum message section to where each person name thst they setup for their profile be their messaging name?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Forum messages display the author's profile name (from the user profile they set up) instead of principal or anonymous label",
+        "If a user has not set up a profile name, show a reasonable fallback (e.g., 'Anonymous' or 'User')",
+        "The change applies to all messages in the forum section detail view",
+        "Backend may need to return profile names alongside messages, or frontend must fetch profiles for message authors"
+      ]
+    },
+    {
+      "id": "REQ-63",
+      "text": "Update the backend forum message data structure and retrieval method so that when messages are fetched for a section, each message includes the author's saved profile name (if available) in addition to the principal, so the frontend can display the correct author name without separate profile lookups.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-request"
+        ],
+        "quotes": [
+          "Hey chst can you make the forum message section to where each person name thst they setup for their profile be their messaging name?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend message retrieval includes the author's profile name field for each message",
+        "If the author has no saved profile, the name field is empty or a default value",
+        "The Candid interface for forum messages is updated to include the author name field",
+        "Frontend receives author names without needing separate getUserProfile queries per message"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change the existing forum UI design, colors, or layout",
+    "Preserve the existing message posting, deletion, and admin controls",
+    "Ensure anonymous/guest users can still view messages with author names displayed correctly"
+  ],
+  "nonGoals": [
+    "Adding profile pictures or avatars to forum messages",
+    "Implementing @mentions or user tagging in messages",
+    "Changing the forum section creation or deletion logic",
+    "Modifying the auto-refresh or scrolling behavior"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

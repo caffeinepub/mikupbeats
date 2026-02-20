@@ -1,0 +1,24 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Display user profile name as forum message author",
+  "requirements": [
+    {
+      "id": "REQ-62",
+      "summary": "Update forum message display to show the author's saved profile name instead of principal or anonymous fallback",
+      "acceptanceCriteria": [
+        "Forum messages display the author's profile name (from the user profile they set up) instead of principal or anonymous label",
+        "If a user has not set up a profile name, show a reasonable fallback (e.g., 'Anonymous' or 'User')",
+        "The change applies to all messages in the forum section detail view",
+        "Backend may need to return profile names alongside messages, or frontend must fetch profiles for message authors"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SectionDetailPage.tsx",
+          "operation": "modify",
+          "description": "Update the message rendering logic to display the author's profile name from the 'name' field already present in the Message interface. Replace any principal or anonymous display logic with the message.name field. Ensure the UI shows 'Anonymous' or 'User' if the name field is empty. The backend already provides the author name in the Message interface via the 'name' property, so no additional fetching is required."
+        }
+      ]
+    }
+  ]
+}
