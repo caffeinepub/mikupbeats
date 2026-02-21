@@ -154,6 +154,7 @@ function clearParamFromHash(paramName: string): void {
 /**
  * Removes multiple query parameters from the URL without reloading the page
  * Works with both regular query strings and hash-based routing
+ * Preserves route information and other parameters
  *
  * @param paramNames - Array of parameter names to remove
  *
@@ -163,7 +164,7 @@ function clearParamFromHash(paramName: string): void {
  * // URL: https://app.com/#/dashboard
  */
 export function removeQueryParams(paramNames: string[]): void {
-    if (!window.history.replaceState) {
+    if (!window.history.replaceState || paramNames.length === 0) {
         return;
     }
 
@@ -196,18 +197,19 @@ export function removeQueryParams(paramNames: string[]): void {
         }
     }
 
-    // Handle regular query strings (fallback)
+    // Handle regular query strings (non-hash routing)
     const urlParams = new URLSearchParams(window.location.search);
-    let hasChanges = false;
+    let hasParams = false;
 
+    // Check if any of the params exist
     paramNames.forEach(paramName => {
         if (urlParams.has(paramName)) {
+            hasParams = true;
             urlParams.delete(paramName);
-            hasChanges = true;
         }
     });
 
-    if (hasChanges) {
+    if (hasParams) {
         const newQueryString = urlParams.toString();
         const newUrl = window.location.pathname + (newQueryString ? '?' + newQueryString : '') + window.location.hash;
         window.history.replaceState(null, '', newUrl);

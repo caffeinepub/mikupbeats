@@ -278,7 +278,7 @@ export default function SectionDetailPage() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-sm font-medium text-[#a970ff] truncate">
-                            {msg.name || 'Anonymous'}
+                            {msg.authorName || 'Anonymous'}
                           </span>
                           <span className="text-xs text-muted-foreground">
                             {new Date(Number(msg.createdAt) / 1000000).toLocaleString()}

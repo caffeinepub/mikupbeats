@@ -210,8 +210,8 @@ export const Section = IDL.Record({
 export const Message = IDL.Record({
   'id' : IDL.Text,
   'principal' : IDL.Principal,
-  'name' : IDL.Text,
   'createdAt' : IDL.Int,
+  'authorName' : IDL.Opt(IDL.Text),
   'sectionId' : IDL.Text,
   'message' : IDL.Text,
 });
@@ -784,8 +784,8 @@ export const idlFactory = ({ IDL }) => {
   const Message = IDL.Record({
     'id' : IDL.Text,
     'principal' : IDL.Principal,
-    'name' : IDL.Text,
     'createdAt' : IDL.Int,
+    'authorName' : IDL.Opt(IDL.Text),
     'sectionId' : IDL.Text,
     'message' : IDL.Text,
   });

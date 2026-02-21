@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Display user profile names as forum message authors instead of principals or anonymous labels.
+**Goal:** Display user profile names instead of "Anonymous" for forum message authors who have saved profile information.
 
 **Planned changes:**
-- Update backend to include author profile names when fetching forum messages
-- Update Candid interface to support author name field in message data structure
-- Modify frontend SectionDetailPage to display author profile names from message data
-- Implement fallback to show "Anonymous" or "User" when profile name is not set
+- Update the message author display in SectionDetailPage.tsx to show the `authorName` field when available
+- Fall back to "Anonymous" only when `authorName` is null or empty
+- Ensure principal IDs are never displayed to end users
 
-**User-visible outcome:** Forum messages now show the author's chosen profile name, making it easier to identify who posted each message.
+**User-visible outcome:** Forum messages will show the author's profile name (if they have one saved) instead of always displaying "Anonymous", making it easier to identify who posted each message.

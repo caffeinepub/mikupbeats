@@ -94,8 +94,8 @@ export interface LiveStream {
 export interface Message {
   'id' : string,
   'principal' : Principal,
-  'name' : string,
   'createdAt' : bigint,
+  'authorName' : [] | [string],
   'sectionId' : string,
   'message' : string,
 }

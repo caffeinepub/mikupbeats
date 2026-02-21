@@ -16,9 +16,7 @@ import OutCall "http-outcalls/outcall";
 import UserApproval "user-approval/approval";
 import MixinAuthorization "authorization/MixinAuthorization";
 import MixinStorage "blob-storage/Mixin";
-import Migration "migration";
 
-(with migration = Migration.run)
 actor {
   include MixinStorage();
 
@@ -1264,7 +1262,7 @@ actor {
     id : Text;
     sectionId : Text;
     principal : Principal;
-    name : Text;
+    authorName : ?Text;
     message : Text;
     createdAt : Int;
   };
@@ -1372,20 +1370,17 @@ actor {
     messages.remove(id);
   };
 
-  public query func getMessages(sectionId : Text) : async [Message] {
+  public query ({ caller }) func getMessages(sectionId : Text) : async [Message] {
     messages.values().toArray().filter(
       func(msg) { msg.sectionId == sectionId }
     ).map(
       func(internalMsg) {
-        let name = switch (userProfiles.get(internalMsg.principal)) {
-          case (?profile) { profile.name };
-          case (null) { internalMsg.principal.toText() };
-        };
+        let authorName = userProfiles.get(internalMsg.principal).map(func(profile) { profile.name });
         {
           id = internalMsg.id;
           sectionId = internalMsg.sectionId;
           principal = internalMsg.principal;
-          name;
+          authorName;
           message = internalMsg.message;
           createdAt = internalMsg.createdAt;
         };
@@ -1924,3 +1919,4 @@ actor {
     );
   };
 };
+
