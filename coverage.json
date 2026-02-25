@@ -1,0 +1,38 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T20:34:31.295Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 1,
+    "implemented": 0,
+    "items": [
+      {
+        "id": "REQ-68",
+        "summary": "Update the Exclusive Rights license description displayed in the beat store and purchase UI (BeatCard.tsx and BeatDetailsPage.tsx) to accurately reflect the terms from the M.v.A Exclusive Rights License Agreement: the buyer receives exclusive usage rights (not full copyright ownership), the beat will no longer be sold or licensed to any other artist after purchase, the buyer gets unlimited commercial use, unrestricted digital/streaming/physical distribution, and full rights to adapt/remix/sample the work, stems are included at no additional cost, and the Licensor retains original copyright documentation but transfers all exclusive usage rights to the sole buyer. Exclusive rights transfer is final upon full payment.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/BeatCard.tsx",
+          "frontend/src/components/BeatDetailsPage.tsx"
+        ],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/pages/BeatDetailsPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

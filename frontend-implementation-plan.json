@@ -1,0 +1,32 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update Exclusive Rights license description in purchase UI",
+  "requirements": [
+    {
+      "id": "REQ-68",
+      "summary": "Update the Exclusive Rights license description in BeatCard.tsx and BeatDetailsPage.tsx to accurately reflect the terms: buyer receives exclusive usage rights (not full copyright ownership), beat will no longer be sold to others, unlimited commercial use, unrestricted distribution, full adaptation rights, stems included at no cost, Licensor retains original copyright documentation, and exclusive rights transfer is final upon payment.",
+      "acceptanceCriteria": [
+        "In BeatCard.tsx, the Exclusive rights option description reads: 'Exclusive Rights grants you sole and exclusive usage rights to this beat. Once purchased, this beat will no longer be sold or licensed to any other artist. You receive unlimited commercial use, unrestricted digital, streaming, and physical distribution, and full rights to adapt, remix, and sample the work. Exclusive Rights automatically include stems at no additional cost. The Licensor retains original copyright documentation but transfers all exclusive usage rights to you as the sole buyer. Exclusive rights transfer is final upon full payment.'",
+        "In BeatDetailsPage.tsx, the Exclusive rights option description matches the same verbatim text as above.",
+        "No other rights tier descriptions (Basic, Premium, Stems) are modified.",
+        "The description does not claim the buyer receives full copyright ownership.",
+        "The description explicitly states the Licensor retains original copyright documentation.",
+        "The description explicitly states stems are included at no additional cost with Exclusive.",
+        "The description explicitly states the beat will no longer be sold or licensed to any other artist after purchase."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BeatCard.tsx",
+          "operation": "modify",
+          "description": "Update the Exclusive Rights license description text to match the M.v.A Exclusive Rights License Agreement terms. Replace the existing Exclusive rights description with: 'Exclusive Rights grants you sole and exclusive usage rights to this beat. Once purchased, this beat will no longer be sold or licensed to any other artist. You receive unlimited commercial use, unrestricted digital, streaming, and physical distribution, and full rights to adapt, remix, and sample the work. Exclusive Rights automatically include stems at no additional cost. The Licensor retains original copyright documentation but transfers all exclusive usage rights to you as the sole buyer. Exclusive rights transfer is final upon full payment.' Do not modify descriptions for Basic, Premium, or Stems tiers."
+        },
+        {
+          "path": "frontend/src/components/BeatDetailsPage.tsx",
+          "operation": "modify",
+          "description": "Update the Exclusive Rights license description text to match the M.v.A Exclusive Rights License Agreement terms. Replace the existing Exclusive rights description with the exact same text used in BeatCard.tsx: 'Exclusive Rights grants you sole and exclusive usage rights to this beat. Once purchased, this beat will no longer be sold or licensed to any other artist. You receive unlimited commercial use, unrestricted digital, streaming, and physical distribution, and full rights to adapt, remix, and sample the work. Exclusive Rights automatically include stems at no additional cost. The Licensor retains original copyright documentation but transfers all exclusive usage rights to you as the sole buyer. Exclusive rights transfer is final upon full payment.' Ensure verbatim consistency with BeatCard.tsx. Do not modify descriptions for Basic, Premium, or Stems tiers."
+        }
+      ]
+    }
+  ]
+}

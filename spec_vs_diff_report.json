@@ -1,0 +1,33 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T20:34:31.289Z",
+  "summary": "The diff shows that BeatDetailsPage.tsx was updated with the exact EXCLUSIVE_RIGHTS_DESCRIPTION constant matching the verbatim text required by REQ-68. The frontend-file-summaries.txt also references BeatCard.tsx as having updated licensing UI. However, the actual BeatCard.tsx file content is not directly shown in the diff — only a summary entry in frontend-file-summaries.txt mentions it. The BeatDetailsPage.tsx change is confirmed verbatim. The BeatCard.tsx change cannot be fully verified from the diff content provided.",
+  "missing_requirements": [
+    {
+      "id": "REQ-68",
+      "requirement": "In BeatCard.tsx, the Exclusive rights option description reads the specified verbatim text.",
+      "reason": "The diff does not include the actual modified content of BeatCard.tsx. Only a high-level summary in frontend-file-summaries.txt mentions updated licensing UI, but there is no direct evidence that the verbatim Exclusive Rights description was added to BeatCard.tsx.",
+      "evidence": [
+        "frontend/src/components/BeatCard.tsx",
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Modifications to urlParams.ts utility file",
+      "reason": "The diff includes changes to frontend/src/utils/urlParams.ts, which was not requested by REQ-68. The build request explicitly states only BeatCard.tsx and BeatDetailsPage.tsx should be changed.",
+      "evidence": [
+        "frontend/src/utils/urlParams.ts"
+      ]
+    }
+  ],
+  "confidence": 0.65,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/pages/BeatDetailsPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "project_state.json"
+  ]
+}
